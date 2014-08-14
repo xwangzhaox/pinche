@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @map.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @map.end_time %>
+</p>
+
+<p>
+  <strong>Expense:</strong>
+  <%= @map.expense %>
+</p>
+
+<p>
+  <strong>Starting point:</strong>
+  <%= @map.starting_point %>
+</p>
+
+<p>
+  <strong>End point:</strong>
+  <%= @map.end_point %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @map.description %>
+</p>
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>

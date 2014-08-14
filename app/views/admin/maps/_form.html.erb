@@ -1,0 +1,71 @@
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=7b333fe081496755b3e0d10d4b35539f"></script>
+<div id="form_content">
+  <%= semantic_form_for [:admin, @map] do |f| %>
+    <%= f.inputs :expense, :starting_point, :first_point, :end_point, :last_point, :description %>
+    <%= f.actions %>
+  <% end %>
+</div>
+  <div id="fullbg"></div> 
+  <div id="dialog"> 
+    <div id="container" style="width:520px;height:340px;border:1px solid gray" ></div>
+  </div> 
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#map_first_point_input").hide();
+    $("#map_last_point_input").hide();
+  });
+
+  $("#map_starting_point").blur(function(){
+    if($(this).val()!=""){
+      showBg();
+      var where = $(this).val();
+      get_point(where, "starting_point");
+    }
+  });
+
+  $("#map_end_point").blur(function(){
+    if($(this).val()!=""){
+      showBg();
+      var where = $(this).val();
+      get_point(where, "end_point");
+    }
+  });
+
+  //显示灰色 jQuery 遮罩层 
+  function showBg() { 
+    var bh = $("body").height(); 
+    var bw = $("body").width(); 
+    $("#fullbg").css({ 
+      height:bh, 
+      width:bw, 
+      display:"block" 
+    }); 
+    $("#dialog").show(); 
+  } 
+
+  //关闭灰色 jQuery 遮罩 
+  function closeBg() { 
+    $("#fullbg,#dialog").hide(); 
+  } 
+
+  function get_point(result,id){//地图搜索
+    var map = new BMap.Map("container");//在指定的容器内创建地图实例
+    map.setDefaultCursor("crosshair");//设置地图默认的鼠标指针样式
+    map.enableScrollWheelZoom();//启用滚轮放大缩小，默认禁用。
+    map.centerAndZoom(new BMap.Point(116.124878, 63.11), 13);
+    map.addControl(new BMap.NavigationControl()); 
+    map.addEventListener("click", function(e){//地图单击事件
+      if(id=="starting_point"){
+        $("#map_first_point").val(e.point.lng + ", " + e.point.lat);
+      }else{
+        $("#map_last_point").val(e.point.lng + ", " + e.point.lat);
+      }
+      closeBg();
+    });
+    var local = new BMap.LocalSearch(map, {
+        renderOptions:{map: map}
+    });
+    local.search(result);
+  }
+</script>

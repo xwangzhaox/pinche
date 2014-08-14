@@ -1,0 +1,61 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+html{height:100%}  
+body{height:100%;margin:0px;padding:0px} 
+
+#header-wrap {
+    position: relative;
+    height: 40px;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0px 2px 9px rgba(0,0,0,.6);
+    line-height: 40px;
+    background-color: rgb(100, 100, 100);
+}
+
+#header-wrap a{
+  color: white;
+  text-decoration: none;
+  padding: 0 22px;
+}
+#header-wrap span {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  padding: 0 22px; 
+  vertical-align: super; 
+  line-height: 50px;
+}
+
+#header-wrap a:hover {
+  background-color: rgb(100, 100, 100);
+}
+#home{padding: 0px; display: block;}
+#notice{padding: 0px; display: block;}
+
+#container{height:100%}  
+#content{padding: 20px;}
+/* float */
+.left{float: left;}
+.right{float: right;}
+/* color */
+.white{color: white;}
+.red{color: red;}
+.black{color: black;}
+/* padding */
+.t_padding_5{padding-top: 5px;}
+
+.clear{clear: both;}

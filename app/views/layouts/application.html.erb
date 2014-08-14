@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>  
+<html>  
+  <head>  
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <title>Pin Che</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=7b333fe081496755b3e0d10d4b35539f"></script>
+  </head>  
+   
+  <body>  
+    <div id="header-wrap">
+      <%= render partial: 'layouts/header' %>
+    </div>
+    <%= yield %>
+  </body>  
+</html>
